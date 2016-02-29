@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated feb 27, 2016 1:49:50 p.m. by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJO.Coordinadordpto" table="coordinadordpto" catalog="empresa" optimistic-lock="version">
+        <id name="codigo" type="java.lang.Integer">
+            <column name="codigo" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="depatamento" class="POJO.Depatamento" fetch="select">
+            <column name="dpto" not-null="true" unique="true" />
+        </many-to-one>
+        <many-to-one name="empleado" class="POJO.Empleado" fetch="select">
+            <column name="coordinador" not-null="true" unique="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
