@@ -16,4 +16,5 @@ import org.hibernate.Session;
 public interface ItDepartamento {
     
     public List<Depatamento> getAll(Session session) throws Exception;
+    public void insertDpto(Session session, Depatamento dpto) throws Exception;
 }

@@ -9,8 +9,10 @@ import DAO.DAODepartamento;
 import HibernateUtil.HibernateUtil;
 import POJO.Depatamento;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -51,6 +53,32 @@ public class MbDepartamento {
             return null;
         }
     }
+    
+     public void insertarDpto()
+    {
+        System.out.println("Entro al metodo");
+        this.session = null;
+        this.transaction = null;
+        
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+            DAODepartamento daoDpto = new DAODepartamento();
+            this.transaction = this.session.beginTransaction();
+            daoDpto.insertDpto(session, dpto);
+            transaction.commit();
+            
+        } catch (Exception e) {
+            if (this.transaction != null) {
+                this.transaction.rollback();
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info" , "PrimeFaces Rocks."));
+       
+            }
+        }finally{            
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info" , "PrimeFaces Rocks."));
+        }
+        
+    }
+    
     public Depatamento getDpto() {
         return dpto;
     }

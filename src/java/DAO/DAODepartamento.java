@@ -22,6 +22,11 @@ public class DAODepartamento implements ItDepartamento{
     public List<Depatamento> getAll(Session session) throws Exception {
         return session.createCriteria(Depatamento.class).list();
     }
+
+    @Override
+    public void insertDpto(Session session, Depatamento dpto) throws Exception {
+        session.save(dpto);
+    }
     
     
 }
