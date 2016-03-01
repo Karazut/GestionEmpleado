@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-mar-2016 8:17:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJO.Depatamento" table="depatamento" catalog="empresa" optimistic-lock="version">
+        <id name="codDpto" type="java.lang.Integer">
+            <column name="codDpto" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreDpto" type="string">
+            <column name="nombreDpto" length="45" not-null="true" />
+        </property>
+        <set name="coordinadordptos" table="coordinadordpto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="dpto" not-null="true" unique="true" />
+            </key>
+            <one-to-many class="POJO.Coordinadordpto" />
+        </set>
+        <set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codDpto" />
+            </key>
+            <one-to-many class="POJO.Empleado" />
+        </set>
+    </class>
+</hibernate-mapping>

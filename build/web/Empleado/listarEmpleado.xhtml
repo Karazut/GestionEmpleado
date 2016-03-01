@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGroup>
+                <p:dataTable value="#{mbEmpleado.all}" var="item" style="font-size: 15px; width: auto;">
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{item.nomEmpleado}"/>
+                    </p:column> 
+                    <p:column headerText="Apellido">
+                        <h:outputText value="#{item.apeEmpleado}"/>
+                    </p:column> 
+                    <p:column headerText="Cédula">
+                        <h:outputText value="#{item.cedEmpleado}"/>
+                    </p:column> 
+                    <p:column headerText="Telefono">
+                        <h:outputText value="#{item.telEmpleado}"/>
+                    </p:column> 
+                    <p:column headerText="Dirección">
+                        <h:outputText value="#{item.dirEmpleado}"/>
+                    </p:column> 
+                    <p:column headerText="Departamento">
+                        <h:outputText value="#{item.depatamento.nombreDpto}"/>
+                    </p:column>    
+                    <p:column headerText="Responsable">
+                        <h:outputText value="#{item.empleado.nomEmpleado}"/>
+                    </p:column>
+                    <p:column>
+                        <p:commandButton action="listarEmpleado" actionListener="#{mbEmpleado.deleteEmpl(item.codEmpleado.toString())}"  value="Delete" />
+                    </p:column>
+                </p:dataTable>
+            </h:panelGroup>
+        </h:form>
+    </h:body>
+</html>
+
