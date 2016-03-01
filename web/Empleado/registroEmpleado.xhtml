@@ -13,7 +13,6 @@
                 <div class="ui-grid-row">
                     <div class="ui-grid-col-4"></div>
                     <div class="ui-grid-col-4">
-
                         <p:panel id="basic"  header="Registrar usuario"  style="margin-bottom:20px;">
                             <h:panelGrid columns="2" cellpadding="5">
                                 <p:outputLabel for="txtNombre" value="Nombre: "/>
@@ -35,18 +34,22 @@
                                 <p:inputText id="txtDireccion" required="true" value="#{mbEmpleado.emp.dirEmpleado}"  label="Dirección">
                                     <f:validateLength minimum="3" maximum="20"/>
                                 </p:inputText>
-                                <p:outputLabel for="banEsCoord" value="Coordinador: "/>
-                                <p:selectBooleanButton onLabel="Si" offLabel="No" value="#{mbEmpleado.emp.esCoordinador}"  id="banEsCoord" />
-                                <p:outputLabel for="banEsCoord" value="Departamento: "/>
-                                <p:selectOneMenu value="#{mbEmpleado.d}">
+                                <p:outputLabel for="boolEsCoord" value="Coordinador: "/>
+                                <p:selectBooleanButton onLabel="Si" offLabel="No" value="#{mbEmpleado.emp.esCoordinador}"  id="boolEsCoord" />
+                                
+                                <p:outputLabel for="selectDpto" value="Departamento: "/>
+                                <p:selectOneMenu id="selectDpto" value="#{mbEmpleado.codDpto}">
                                     <f:selectItems value="#{mbDepartamento.allDpto}" var="item" itemValue="#{item.codDpto}" itemLabel="#{item.nombreDpto}"/>
+                                    <!--<f:converter converterId="dptoConverter"/>-->
                                 </p:selectOneMenu>
-                                <p:outputLabel for="banEsCoord" value="Responsable "/>
-                                <p:selectOneMenu value="#{mbEmpleado.d}">
-                                    <f:selectItem  itemLabel="Ninguno"/>
-                                    <f:selectItems value="#{mbEmpleado.all}" var="item" itemValue="#{item.cedEmpleado}" itemLabel="#{item.nomEmpleado}"/>
-                                </p:selectOneMenu><br/>      
-                                <p:commandButton process="@parent:@parent" update="@form" action="#{mbEmpleado.insertarEmpl()}"  value="Registrar" />
+                               
+                                <p:outputLabel for="selectEmp" value="Responsable: "/>                                
+                               <p:selectOneMenu  value="#{mbEmpleado.codResp}" id="selectEmp">  
+                                   <f:selectItems value="#{mbEmpleado.all}" var="item" itemValue="#{item.codEmpleado}" itemLabel="#{item.nomEmpleado}"/>
+                                     <!--<f:converter converterId="empConverter"/>-->
+                                </p:selectOneMenu>
+                                <p:commandButton process="@parent:@parent" action="registroEmpleado" update="@form" actionListener="#{mbEmpleado.insertarEmpl()}" value="Registrar" />
+
                             </h:panelGrid>
                         </p:panel>
                     </div>

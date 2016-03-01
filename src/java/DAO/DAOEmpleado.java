@@ -8,7 +8,6 @@ package DAO;
 import Interface.ItEmpleado;
 import POJO.Empleado;
 import java.util.List;
-import javafx.scene.shape.QuadCurve;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
@@ -23,17 +22,25 @@ public class DAOEmpleado implements ItEmpleado {
         return session.createCriteria(Empleado.class).list();
     }
 
+     @Override
+    public void insertEmpleado(Session session, Empleado emp) throws Exception {
+        session.save(emp);
+    }
+
     @Override
-    public Empleado getByCed(Session session, String ced) throws Exception {
-        String hql = "select * from empleado where=:Ced";
+    public Empleado getByCod(Session session, String cod) throws Exception {
+        int num = Integer.parseInt(cod);
+        String hql = "from Empleado where codEmpleado = :cod";
+        System.out.println(cod+"emp");
         Query query = session.createQuery(hql);
-        query.setParameter("ced", ced);
+        query.setParameter("cod", num);
+        
         return (Empleado) query.uniqueResult();
     }
 
     @Override
-    public void insertEmpleado(Session session, Empleado emp) throws Exception {
-        session.save(emp);
+    public void deleteEmpelado(Session session, Empleado emp) throws Exception {
+        session.delete(emp);
     }
 
 }

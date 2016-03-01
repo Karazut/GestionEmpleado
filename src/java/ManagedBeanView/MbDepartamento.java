@@ -8,6 +8,7 @@ package ManagedBeanView;
 import DAO.DAODepartamento;
 import HibernateUtil.HibernateUtil;
 import POJO.Depatamento;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -22,7 +23,7 @@ import org.hibernate.Transaction;
  */
 @ManagedBean
 @ViewScoped
-public class MbDepartamento {
+public class MbDepartamento implements Serializable{
 
     private Session session;
     private Transaction transaction;
@@ -31,6 +32,7 @@ public class MbDepartamento {
     private List<Depatamento> listaDpto;
     
     public MbDepartamento() {
+        dpto = new Depatamento();
     }
 
     public List<Depatamento> getAllDpto()
@@ -39,6 +41,7 @@ public class MbDepartamento {
         this.transaction = null;
         
         try {
+            System.out.println("getallDpto");
             session = HibernateUtil.getSessionFactory().openSession();
             DAODepartamento daoEmpleado = new DAODepartamento();
             this.transaction = this.session.beginTransaction();
@@ -54,7 +57,7 @@ public class MbDepartamento {
         }
     }
     
-     public void insertarDpto()
+    public void insertarDpto()
     {
         System.out.println("Entro al metodo");
         this.session = null;
@@ -74,7 +77,7 @@ public class MbDepartamento {
        
             }
         }finally{            
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info" , "PrimeFaces Rocks."));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Se añadio un nuevo departamento" , "PrimeFaces Rocks."));
         }
         
     }

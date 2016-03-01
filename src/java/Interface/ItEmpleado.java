@@ -16,6 +16,7 @@ import org.hibernate.Session;
  */
 public interface ItEmpleado {
     public List<Empleado> getAll(Session session) throws Exception;
-    public Empleado getByCed(Session session, String ced) throws Exception;
+    public Empleado getByCod(Session session, String cod) throws Exception;
     public void insertEmpleado(Session session, Empleado emp) throws Exception;
+    public void deleteEmpelado(Session session, Empleado emp) throws Exception;
 }

@@ -8,8 +8,8 @@ package DAO;
 import Interface.ItDepartamento;
 import POJO.Depatamento;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 /**
  *
@@ -26,6 +26,17 @@ public class DAODepartamento implements ItDepartamento{
     @Override
     public void insertDpto(Session session, Depatamento dpto) throws Exception {
         session.save(dpto);
+    }
+
+    @Override
+    public Depatamento getByCod(Session session, String cod) throws Exception {
+        int num = Integer.parseInt(cod);
+        String hql = "from Depatamento where codDpto = :cod";
+        System.out.println(cod + "dpto");
+        Query query = session.createQuery(hql);
+        query.setParameter("cod", num);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+        
+        return (Depatamento) query.uniqueResult();
     }
     
     
