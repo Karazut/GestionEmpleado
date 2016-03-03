@@ -3,41 +3,48 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:form>
-            <h:panelGroup>                
-                <p:dataTable value="#{mbEmpleado.allEmpleado}" var="item">
-                    <p:column headerText="Nombre">
-                        <h:outputText value="#{item.nomEmpleado}"/>
-                    </p:column>
-                    <p:column headerText="Apellido">
-                        <h:outputText value="#{item.apeEmpleado}"/>
-                    </p:column>
-                    <p:column headerText="Cedúla">
-                        <h:outputText value="#{item.cedEmpleado}"/>
-                    </p:column>
-                    <p:column headerText="Telefono">
-                        <h:outputText value="#{item.telEmpleado}"/>
-                    </p:column>
-                    <p:column headerText="Dirección">
-                        <h:outputText value="#{item.dirEmpleado}"/>
-                    </p:column>
-                    <p:column headerText="Departamento">
-                        <h:outputText value="#{item.departamento.nombreDpto}"/>
-                    </p:column>
-                    <p:column headerText="Responsable">
-                        <h:outputText value="#{item.empleado.nomEmpleado}"/>
-                    </p:column>
-                    <p:column headerText="Eliminar">
-                        <p:commandButton process="@parent:@parent" action="listarEmpleado" update="@form" value="Eliminar" actionListener="#{mbEmpleado.deleteEmpl(item)}"/>
-                    </p:column>
-                </p:dataTable>
-            </h:panelGroup>
-        </h:form>
+        <ui:composition template="../WEB-INF/Template/Template.xhtml"
+                        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGroup>                
+                        <p:dataTable value="#{mbEmpleado.allEmpleado}" var="item">
+                            <p:column headerText="Nombre">
+                                <h:outputText value="#{item.nomEmpleado}"/>
+                            </p:column>
+                            <p:column headerText="Apellido">
+                                <h:outputText value="#{item.apeEmpleado}"/>
+                            </p:column>
+                            <p:column headerText="Cedúla">
+                                <h:outputText value="#{item.cedEmpleado}"/>
+                            </p:column>
+                            <p:column headerText="Telefono">
+                                <h:outputText value="#{item.telEmpleado}"/>
+                            </p:column>
+                            <p:column headerText="Dirección">
+                                <h:outputText value="#{item.dirEmpleado}"/>
+                            </p:column>
+                            <p:column headerText="Departamento">
+                                <h:outputText value="#{item.departamento.nombreDpto}"/>
+                            </p:column>
+                            <p:column headerText="Responsable">
+                                <h:outputText value="#{item.empleado.nomEmpleado}"/>
+                            </p:column>
+                            <p:column headerText="Eliminar">
+                                <p:commandButton process="@parent:@parent" action="listarEmpleado" update="@form" value="Eliminar" actionListener="#{mbEmpleado.deleteEmpl(item)}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:panelGroup>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
     </h:body>
 </html>
 

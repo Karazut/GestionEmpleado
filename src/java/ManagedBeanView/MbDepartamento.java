@@ -54,7 +54,6 @@ public class MbDepartamento implements Serializable{
             }
             return null;
         } finally{
-            session.close();
         }
     }
     

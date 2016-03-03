@@ -44,7 +44,6 @@
                                 </p:selectOneMenu>
                                 <p:outputLabel for="selectEmp" value="Responsable: "/>                                
                                 <p:selectOneMenu  value="#{mbEmpleado.codResp}" id="selectEmp">  
-                                    <f:selectItem  itemLabel="Ninguno" />
                                     <f:selectItems value="#{mbEmpleado.allEmpleado}" var="item" itemValue="#{item.codEmpleado}" itemLabel="#{item.nomEmpleado}" />
                                     <!--<f:converter converterId="empConverter"/>-->
                                 </p:selectOneMenu>

@@ -29,7 +29,7 @@ public class MbEmpleado implements Serializable {
 
     private Session session;
     private Transaction transaction;
-    
+
     private Empleado emp;
     private Departamento dpto;
     private List<Empleado> listaEmpleado;//Variable para el select one menu de registro
@@ -56,12 +56,12 @@ public class MbEmpleado implements Serializable {
             }
             return null;
         } finally {
-            
+
         }
     }
 
     public void insertarEmpl() {
-        
+
         this.session = null;
         this.transaction = null;
 
@@ -69,12 +69,15 @@ public class MbEmpleado implements Serializable {
             this.session = HibernateUtil.getSessionFactory().openSession();
             DAOEmpleado daoEmpleado = new DAOEmpleado();
             DAODepartamento daoDpto = new DAODepartamento();
-            if(!this.codResp.equals(""))
-            this.emp.setEmpleado(daoEmpleado.getByCod(session, this.codResp));
+
+            if (!this.codDpto.equals("")) {
+                this.emp.setEmpleado(daoEmpleado.getByCod(session, this.codResp));
+            }
+
             this.emp.setDepartamento(daoDpto.getByCod(this.session, this.codDpto));
             this.transaction = this.session.beginTransaction();
 
-            daoEmpleado.insertEmpleado(session, emp);
+            daoEmpleado.insertEmpleado(this.session, this.emp);
             this.transaction.commit();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Se realizo el registro", "PrimeFaces Rocks."));
 
@@ -85,7 +88,6 @@ public class MbEmpleado implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "No se realizo el registro", "PrimeFaces Rocks."));
             session.close();
         } finally {
-            session.close();
             this.emp = null;
         }
     }
@@ -93,18 +95,18 @@ public class MbEmpleado implements Serializable {
     public void deleteEmpl(Empleado emp) {
         this.session = null;
         this.transaction = null;
-        
+
         try {
             this.session = HibernateUtil.getSessionFactory().openSession();
             this.transaction = this.session.beginTransaction();
             DAOEmpleado daoEmpleado = new DAOEmpleado();
-            daoEmpleado.deleteEmpelado(session, emp);            
+            daoEmpleado.deleteEmpelado(session, emp);
             this.transaction.commit();
-            
+
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Se elimino el empleado", "PrimeFaces Rocks."));
 
         } catch (Exception e) {
-        } finally{
+        } finally {
             session.close();
         }
     }
@@ -131,8 +133,8 @@ public class MbEmpleado implements Serializable {
 
     public void setEmp(Empleado emp) {
         this.emp = emp;
-    }   
-    
+    }
+
     public List<Empleado> getListaEmpleado() {
         return listaEmpleado;
     }
