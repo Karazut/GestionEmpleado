@@ -7,7 +7,7 @@ package ManagedBeanView;
 
 import DAO.DAODepartamento;
 import HibernateUtil.HibernateUtil;
-import POJO.Depatamento;
+import POJO.Departamento;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -28,25 +28,24 @@ public class MbDepartamento implements Serializable{
     private Session session;
     private Transaction transaction;
     
-    private Depatamento dpto;
-    private List<Depatamento> listaDpto;
+    private Departamento dpto;
+    private List<Departamento> listaDpto;
     
     public MbDepartamento() {
-        dpto = new Depatamento();
+        dpto = new Departamento();
     }
 
-    public List<Depatamento> getAllDpto()
+    public List<Departamento> getAllDpto()
     {
         this.session = null;
         this.transaction = null;
         
         try {
-            System.out.println("getallDpto");
-            session = HibernateUtil.getSessionFactory().openSession();
+            this.session = HibernateUtil.getSessionFactory().openSession();
             DAODepartamento daoEmpleado = new DAODepartamento();
             this.transaction = this.session.beginTransaction();
             this.listaDpto = daoEmpleado.getAll(this.session);
-            transaction.commit();
+            this.transaction.commit();
             return this.listaDpto;
             
         } catch (Exception e) {
@@ -54,6 +53,8 @@ public class MbDepartamento implements Serializable{
                 this.transaction.rollback();
             }
             return null;
+        } finally{
+            session.close();
         }
     }
     
@@ -64,11 +65,11 @@ public class MbDepartamento implements Serializable{
         this.transaction = null;
         
         try {
-            session = HibernateUtil.getSessionFactory().openSession();
+            this.session = HibernateUtil.getSessionFactory().openSession();
             DAODepartamento daoDpto = new DAODepartamento();
             this.transaction = this.session.beginTransaction();
             daoDpto.insertDpto(session, dpto);
-            transaction.commit();
+            this.transaction.commit();
             
         } catch (Exception e) {
             if (this.transaction != null) {
@@ -76,25 +77,26 @@ public class MbDepartamento implements Serializable{
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info" , "PrimeFaces Rocks."));
        
             }
-        }finally{            
+        }finally{           
+            session.close();
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Se añadio un nuevo departamento" , "PrimeFaces Rocks."));
         }
         
     }
     
-    public Depatamento getDpto() {
+    public Departamento getDpto() {
         return dpto;
     }
 
-    public void setDpto(Depatamento dpto) {
+    public void setDpto(Departamento dpto) {
         this.dpto = dpto;
     }
 
-    public List<Depatamento> getListaDpto() {
+    public List<Departamento> getListaDpto() {
         return listaDpto;
     }
 
-    public void setListaDpto(List<Depatamento> listaDpto) {
+    public void setListaDpto(List<Departamento> listaDpto) {
         this.listaDpto = listaDpto;
     }
     

@@ -36,17 +36,17 @@
                                 </p:inputText>
                                 <p:outputLabel for="boolEsCoord" value="Coordinador: "/>
                                 <p:selectBooleanButton onLabel="Si" offLabel="No" value="#{mbEmpleado.emp.esCoordinador}"  id="boolEsCoord" />
-                                
+
                                 <p:outputLabel for="selectDpto" value="Departamento: "/>
                                 <p:selectOneMenu id="selectDpto" value="#{mbEmpleado.codDpto}">
                                     <f:selectItems value="#{mbDepartamento.allDpto}" var="item" itemValue="#{item.codDpto}" itemLabel="#{item.nombreDpto}"/>
                                     <!--<f:converter converterId="dptoConverter"/>-->
                                 </p:selectOneMenu>
-                               
                                 <p:outputLabel for="selectEmp" value="Responsable: "/>                                
-                               <p:selectOneMenu  value="#{mbEmpleado.codResp}" id="selectEmp">  
-                                   <f:selectItems value="#{mbEmpleado.all}" var="item" itemValue="#{item.codEmpleado}" itemLabel="#{item.nomEmpleado}"/>
-                                     <!--<f:converter converterId="empConverter"/>-->
+                                <p:selectOneMenu  value="#{mbEmpleado.codResp}" id="selectEmp">  
+                                    <f:selectItem  itemLabel="Ninguno" />
+                                    <f:selectItems value="#{mbEmpleado.allEmpleado}" var="item" itemValue="#{item.codEmpleado}" itemLabel="#{item.nomEmpleado}" />
+                                    <!--<f:converter converterId="empConverter"/>-->
                                 </p:selectOneMenu>
                                 <p:commandButton process="@parent:@parent" action="registroEmpleado" update="@form" actionListener="#{mbEmpleado.insertarEmpl()}" value="Registrar" />
 

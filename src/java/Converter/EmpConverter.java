@@ -31,15 +31,15 @@ public class EmpConverter implements Converter {
     public Object getAsObject(FacesContext fc, UIComponent uic, String ced) {
        
         try {
-            System.out.println("metodo getASoBJECT EMP");
-            List<Empleado> listEmp = mbEmpl.getAll();
-            System.out.println("empleado lista" + listEmp.size());
-            for (Empleado emp : listEmp) {
-                if (emp.getCedEmpleado().equals(ced)) {
-                    System.out.println("Ingreso al ciclo for if empConverter");
-                    return emp;                   
-                }
-            }
+//            System.out.println("metodo getASoBJECT EMP");
+//            List<Empleado> listEmp = mbEmpl.getAllEmpleado();
+//            System.out.println("empleado lista" + listEmp.size());
+//            for (Empleado emp : listEmp) {
+//                if (emp.getCedEmpleado().equals(ced)) {
+//                    System.out.println("Ingreso al ciclo for if empConverter");
+//                    return emp;                   
+//                }
+//            }
 
             return null;
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public class EmpConverter implements Converter {
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object value) {
         Empleado empleado = (Empleado) value;
-        return empleado.getCedEmpleado();
+        return empleado.getCodEmpleado().toString();
     }
 
 }

@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 01-mar-2016 8:17:47 by Hibernate Tools 4.3.1 -->
+<!-- Generated 02-mar-2016 22:47:44 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="POJO.Empleado" table="empleado" catalog="empresa" optimistic-lock="version">
         <id name="codEmpleado" type="java.lang.Integer">
             <column name="codEmpleado" />
             <generator class="identity" />
         </id>
-        <many-to-one name="depatamento" class="POJO.Depatamento" fetch="select">
+        <many-to-one name="departamento" class="POJO.Departamento" fetch="select">
             <column name="codDpto" />
         </many-to-one>
         <many-to-one name="empleado" class="POJO.Empleado" fetch="select">

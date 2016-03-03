@@ -8,7 +8,7 @@ package Converter;
 import DAO.DAODepartamento;
 import HibernateUtil.HibernateUtil;
 import ManagedBeanView.MbDepartamento;
-import POJO.Depatamento;
+import POJO.Departamento;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedProperty;
@@ -37,9 +37,9 @@ public class DptoConverter implements Converter{
 
         try {
            System.out.println("metodo getASoBJECT DPTO");
-            List<Depatamento> listDpto = mbDepartamento.getAllDpto();
+            List<Departamento> listDpto = mbDepartamento.getAllDpto();
             System.out.println("lista sptO" + listDpto.size());
-            for (Depatamento dpto : listDpto) {
+            for (Departamento dpto : listDpto) {
                 if (dpto.getCodDpto().toString().equals(cod)) {
                     System.out.println("Entro al ciclo for If converterDPto");
                     return dpto;
@@ -56,7 +56,7 @@ public class DptoConverter implements Converter{
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object o) {
-        Depatamento dpto = (Depatamento) o;
+        Departamento dpto = (Departamento) o;
 
         return dpto.getCodDpto().toString();
     }

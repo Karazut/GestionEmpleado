@@ -1,5 +1,5 @@
 package POJO;
-// Generated 01-mar-2016 8:17:46 by Hibernate Tools 4.3.1
+// Generated 02-mar-2016 22:47:44 by Hibernate Tools 4.3.1
 
 
 
@@ -10,14 +10,14 @@ public class Coordinadordpto  implements java.io.Serializable {
 
 
      private Integer codigo;
-     private Depatamento depatamento;
+     private Departamento departamento;
      private Empleado empleado;
 
     public Coordinadordpto() {
     }
 
-    public Coordinadordpto(Depatamento depatamento, Empleado empleado) {
-       this.depatamento = depatamento;
+    public Coordinadordpto(Departamento departamento, Empleado empleado) {
+       this.departamento = departamento;
        this.empleado = empleado;
     }
    
@@ -28,12 +28,12 @@ public class Coordinadordpto  implements java.io.Serializable {
     public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
-    public Depatamento getDepatamento() {
-        return this.depatamento;
+    public Departamento getDepartamento() {
+        return this.departamento;
     }
     
-    public void setDepatamento(Depatamento depatamento) {
-        this.depatamento = depatamento;
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
     public Empleado getEmpleado() {
         return this.empleado;

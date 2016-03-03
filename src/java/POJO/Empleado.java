@@ -1,5 +1,5 @@
 package POJO;
-// Generated 01-mar-2016 8:17:46 by Hibernate Tools 4.3.1
+// Generated 02-mar-2016 22:47:44 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -12,7 +12,7 @@ public class Empleado  implements java.io.Serializable {
 
 
      private Integer codEmpleado;
-     private Depatamento depatamento;
+     private Departamento departamento;
      private Empleado empleado;
      private String nomEmpleado;
      private String apeEmpleado;
@@ -37,8 +37,8 @@ public class Empleado  implements java.io.Serializable {
         this.dirEmpleado = dirEmpleado;
         this.esCoordinador = esCoordinador;
     }
-    public Empleado(Depatamento depatamento, Empleado empleado, String nomEmpleado, String apeEmpleado, String cedEmpleado, String telEmpleado, String dirEmpleado, String esCoordinador, Set coordinadordptos, Set contratos, Set empleados, Set nominas) {
-       this.depatamento = depatamento;
+    public Empleado(Departamento departamento, Empleado empleado, String nomEmpleado, String apeEmpleado, String cedEmpleado, String telEmpleado, String dirEmpleado, String esCoordinador, Set coordinadordptos, Set contratos, Set empleados, Set nominas) {
+       this.departamento = departamento;
        this.empleado = empleado;
        this.nomEmpleado = nomEmpleado;
        this.apeEmpleado = apeEmpleado;
@@ -59,12 +59,12 @@ public class Empleado  implements java.io.Serializable {
     public void setCodEmpleado(Integer codEmpleado) {
         this.codEmpleado = codEmpleado;
     }
-    public Depatamento getDepatamento() {
-        return this.depatamento;
+    public Departamento getDepartamento() {
+        return this.departamento;
     }
     
-    public void setDepatamento(Depatamento depatamento) {
-        this.depatamento = depatamento;
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
     public Empleado getEmpleado() {
         return this.empleado;

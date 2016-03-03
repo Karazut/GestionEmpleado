@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Prueba/Documents/NetBeansProjects/GestionEmpleado/web/Empleado/registroEmpleado.xhtml</file>
-            <file>file:/C:/Users/Prueba/Documents/NetBeansProjects/GestionEmpleado/src/java/hibernate.cfg.xml</file>
-            <file>file:/C:/Users/Prueba/Documents/NetBeansProjects/GestionEmpleado/src/java/Interface/ItEmpleado.java</file>
-            <file>file:/C:/Users/Prueba/Documents/NetBeansProjects/GestionEmpleado/src/java/DAO/DAOEmpleado.java</file>
-            <file>file:/C:/Users/Prueba/Documents/NetBeansProjects/GestionEmpleado/src/java/hibernate.reveng.xml</file>
-            <file>file:/C:/Users/Prueba/Documents/NetBeansProjects/GestionEmpleado/web/Empleado/listarEmpleado.xhtml</file>
-            <file>file:/C:/Users/Prueba/Documents/NetBeansProjects/GestionEmpleado/src/java/POJO/Empleado.hbm.xml</file>
-            <file>file:/C:/Users/Prueba/Documents/NetBeansProjects/GestionEmpleado/src/java/ManagedBeanView/MbEmpleado.java</file>
-            <file>file:/C:/Users/Prueba/Documents/NetBeansProjects/GestionEmpleado/src/java/POJO/Empleado.java</file>
+            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/GestionEmpleado/src/java/hibernate.cfg.xml</file>
+            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/GestionEmpleado/src/java/DAO/DAOEmpleado.java</file>
+            <file>file:/C:/Users/Julian/Documents/NetBeansProjects/GestionEmpleado/src/java/ManagedBeanView/MbDepartamento.java</file>
         </group>
     </open-files>
 </project-private>
